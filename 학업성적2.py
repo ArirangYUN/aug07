@@ -12,5 +12,15 @@ def append():
     db = DBModule.DBModule()
     db.execute(sql, (name, kor, eng, mat))
 
-append()
+def output():
+    sql = """
+        select name, kor, eng, mat, kor+eng+mat as total
+        from score 
+     """
+    db = DBModule.DBModule()
+    result = db.executeAll(sql)
+    print(result)
+
+output()
+#append()
 
